@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.testapis.mapper.CommentMapper">
+  <resultMap id="BaseResultMap" type="com.example.testapis.entity.Comment">
+    <!--@mbg.generated-->
+    <!--@Table comment-->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="userId" jdbcType="VARCHAR" property="userid" />
+    <result column="userName" jdbcType="VARCHAR" property="username" />
+    <result column="userPic" jdbcType="VARCHAR" property="userpic" />
+    <result column="comment" jdbcType="VARCHAR" property="comment" />
+    <result column="repeatToId" jdbcType="VARCHAR" property="repeattoid" />
+    <result column="mediaId" jdbcType="VARCHAR" property="mediaid" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="belongTo" jdbcType="VARCHAR" property="belongto" />
+    <result column="repeatToName" jdbcType="VARCHAR" property="repeattoname" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, userId, userName, userPic, `comment`, repeatToId, mediaId, create_time, belongTo, 
+    repeatToName
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from comment
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from comment
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.example.testapis.entity.Comment">
+    <!--@mbg.generated-->
+    insert into comment (id, userId, userName, 
+      userPic, `comment`, repeatToId, 
+      mediaId, create_time, belongTo, 
+      repeatToName)
+    values (#{id,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, 
+      #{userpic,jdbcType=VARCHAR}, #{comment,jdbcType=VARCHAR}, #{repeattoid,jdbcType=VARCHAR}, 
+      #{mediaid,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{belongto,jdbcType=VARCHAR}, 
+      #{repeattoname,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.testapis.entity.Comment">
+    <!--@mbg.generated-->
+    insert into comment
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userid != null">
+        userId,
+      </if>
+      <if test="username != null">
+        userName,
+      </if>
+      <if test="userpic != null">
+        userPic,
+      </if>
+      <if test="comment != null">
+        `comment`,
+      </if>
+      <if test="repeattoid != null">
+        repeatToId,
+      </if>
+      <if test="mediaid != null">
+        mediaId,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="belongto != null">
+        belongTo,
+      </if>
+      <if test="repeattoname != null">
+        repeatToName,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="userpic != null">
+        #{userpic,jdbcType=VARCHAR},
+      </if>
+      <if test="comment != null">
+        #{comment,jdbcType=VARCHAR},
+      </if>
+      <if test="repeattoid != null">
+        #{repeattoid,jdbcType=VARCHAR},
+      </if>
+      <if test="mediaid != null">
+        #{mediaid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="belongto != null">
+        #{belongto,jdbcType=VARCHAR},
+      </if>
+      <if test="repeattoname != null">
+        #{repeattoname,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.testapis.entity.Comment">
+    <!--@mbg.generated-->
+    update comment
+    <set>
+      <if test="userid != null">
+        userId = #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        userName = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="userpic != null">
+        userPic = #{userpic,jdbcType=VARCHAR},
+      </if>
+      <if test="comment != null">
+        `comment` = #{comment,jdbcType=VARCHAR},
+      </if>
+      <if test="repeattoid != null">
+        repeatToId = #{repeattoid,jdbcType=VARCHAR},
+      </if>
+      <if test="mediaid != null">
+        mediaId = #{mediaid,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="belongto != null">
+        belongTo = #{belongto,jdbcType=VARCHAR},
+      </if>
+      <if test="repeattoname != null">
+        repeatToName = #{repeattoname,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.testapis.entity.Comment">
+    <!--@mbg.generated-->
+    update comment
+    set userId = #{userid,jdbcType=VARCHAR},
+      userName = #{username,jdbcType=VARCHAR},
+      userPic = #{userpic,jdbcType=VARCHAR},
+      `comment` = #{comment,jdbcType=VARCHAR},
+      repeatToId = #{repeattoid,jdbcType=VARCHAR},
+      mediaId = #{mediaid,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      belongTo = #{belongto,jdbcType=VARCHAR},
+      repeatToName = #{repeattoname,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+
+<!--auto generated by MybatisCodeHelper on 2019-11-16-->
+  <select id="findAllByMediaid" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from comment
+    where mediaId=#{mediaid,jdbcType=VARCHAR}
+  </select>
+</mapper>

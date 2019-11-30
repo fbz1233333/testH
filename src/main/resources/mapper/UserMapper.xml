@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.testapis.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="com.example.testapis.entity.User">
+    <!--@mbg.generated-->
+    <!--@Table user-->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="is_del" jdbcType="INTEGER" property="isDel" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="headpic" jdbcType="VARCHAR" property="headpic" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, `name`, `password`, is_del, create_time, update_time, headpic
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select
+    <include refid="Base_Column_List" />
+    from user
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from user
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.example.testapis.entity.User">
+    <!--@mbg.generated-->
+    insert into user (id, `name`, `password`,
+      is_del, create_time, update_time,
+      headpic)
+    values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
+      #{isDel,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP},
+      #{headpic,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.testapis.entity.User">
+    <!--@mbg.generated-->
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="password != null">
+        `password`,
+      </if>
+      <if test="isDel != null">
+        is_del,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="headpic != null">
+        headpic,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="isDel != null">
+        #{isDel,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="headpic != null">
+        #{headpic,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.testapis.entity.User">
+    <!--@mbg.generated-->
+    update user
+    <set>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        `password` = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="isDel != null">
+        is_del = #{isDel,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="headpic != null">
+        headpic = #{headpic,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.testapis.entity.User">
+    <!--@mbg.generated-->
+    update user
+    set `name` = #{name,jdbcType=VARCHAR},
+      `password` = #{password,jdbcType=VARCHAR},
+      is_del = #{isDel,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      headpic = #{headpic,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="findIdAndNameAndCreateTimeAndHeadPicByIdResult" type="com.example.testapis.results.FindIdAndNameAndCreateTimeAndHeadPicByIdResult">
+    <result column="id" property="id" />
+    <result column="name" property="name" />
+    <result column="create_time" property="createTime" />
+    <result column="headpic" property="headPic" />
+  </resultMap>
+  <resultMap id="findIdAndNameByPasswordAndNameResult" type="com.example.testapis.results.FindIdAndNameByPasswordAndNameResult">
+    <result column="id" property="id" />
+    <result column="name" property="name" />
+  </resultMap>
+
+<!--auto generated by MybatisCodeHelper on 2019-11-03-->
+  <select id="findAllByIsDel" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        from user
+        where is_del=#{isDel,jdbcType=INTEGER}
+    </select>
+
+<!--auto generated by MybatisCodeHelper on 2019-11-03-->
+  <select id="findAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from user
+  </select>
+
+  <select id="findColumnsSelective" resultMap="BaseResultMap">
+    select ${columns}
+    from user
+  </select>
+
+
+    <select id="findAllByPage" parameterType="com.example.testapis.info.PageInfo" resultMap="BaseResultMap">
+      select
+      <include refid="Base_Column_List" />
+      from user
+      LIMIT ${(pageNum-1)*pageSize},#{pageSize,jdbcType=INTEGER}
+    </select>
+
+<!--auto generated by MybatisCodeHelper on 2019-11-07-->
+  <select id="count" resultType="java.lang.Integer">
+    select count(1)
+    from user
+  </select>
+
+
+
+<!--auto generated by MybatisCodeHelper on 2019-11-08-->
+    <select id="findIdAndNameByPasswordAndName" resultMap="findIdAndNameByPasswordAndNameResult">
+    select id, `name`
+    from user
+    where `password`=#{password,jdbcType=VARCHAR} and `name`=#{name,jdbcType=VARCHAR}
+    LIMIT 1
+    </select>
+
+<!--auto generated by MybatisCodeHelper on 2019-11-08-->
+  <update id="updateTokenAndTokenTimeById" parameterType="com.example.testapis.info.TokenInfo">
+    update user
+    set token=#{token,jdbcType=VARCHAR}, token_time=#{tokenTime,jdbcType=TIMESTAMP}
+    where id=#{id,jdbcType=VARCHAR}
+  </update>
+
+<!--auto generated by MybatisCodeHelper on 2019-11-11-->
+  <select id="findIdAndNameAndCreateTimeAndHeadPicById" resultMap="findIdAndNameAndCreateTimeAndHeadPicByIdResult">
+    select id, `name`, create_time, headpic
+    from user
+    where id=#{id,jdbcType=VARCHAR}
+  </select>
+
+  <!--auto generated by MybatisCodeHelper on 2019-11-08-->
+
+
+
+</mapper>

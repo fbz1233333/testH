@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.testapis.mapper.MediaMapper">
+  <resultMap id="BaseResultMap" type="com.example.testapis.entity.Media">
+    <!--@mbg.generated-->
+    <!--@Table media-->
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="userId" jdbcType="VARCHAR" property="userid" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="h1" jdbcType="VARCHAR" property="h1" />
+    <result column="h2" jdbcType="VARCHAR" property="h2" />
+    <result column="h3" jdbcType="VARCHAR" property="h3" />
+    <result column="is_del" jdbcType="INTEGER" property="isDel" />
+    <result column="imageInfo" jdbcType="VARCHAR" property="imageinfo" />
+    <result column="downloadInfo1" jdbcType="VARCHAR" property="downloadinfo1" />
+    <result column="downloadinfo2" jdbcType="VARCHAR" property="downloadinfo2" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="kind_info" jdbcType="VARCHAR" property="kindInfo" />
+    <result column="hot" jdbcType="INTEGER" property="hot" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="state" jdbcType="VARCHAR" property="state" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, title, userId, update_time, h1, h2, h3, is_del, imageInfo, downloadInfo1, downloadinfo2,
+    create_time, kind_info, hot, user_name, `state`
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select
+    <include refid="Base_Column_List" />
+    from media
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from media
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.example.testapis.entity.Media">
+    <!--@mbg.generated-->
+    insert into media (id, title, userId,
+      update_time, h1, h2,
+      h3, is_del, imageInfo,
+      downloadInfo1, downloadinfo2, create_time,
+      kind_info, hot, user_name,
+      `state`)
+    values (#{id,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR},
+      #{updateTime,jdbcType=TIMESTAMP}, #{h1,jdbcType=VARCHAR}, #{h2,jdbcType=VARCHAR},
+      #{h3,jdbcType=VARCHAR}, #{isDel,jdbcType=INTEGER}, #{imageinfo,jdbcType=VARCHAR},
+      #{downloadinfo1,jdbcType=VARCHAR}, #{downloadinfo2,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP},
+      #{kindInfo,jdbcType=VARCHAR}, #{hot,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR},
+      #{state,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.testapis.entity.Media">
+    <!--@mbg.generated-->
+    insert into media
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="userid != null">
+        userId,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="h1 != null">
+        h1,
+      </if>
+      <if test="h2 != null">
+        h2,
+      </if>
+      <if test="h3 != null">
+        h3,
+      </if>
+      <if test="isDel != null">
+        is_del,
+      </if>
+      <if test="imageinfo != null">
+        imageInfo,
+      </if>
+      <if test="downloadinfo1 != null">
+        downloadInfo1,
+      </if>
+      <if test="downloadinfo2 != null">
+        downloadinfo2,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="kindInfo != null">
+        kind_info,
+      </if>
+      <if test="hot != null">
+        hot,
+      </if>
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="state != null">
+        `state`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="h1 != null">
+        #{h1,jdbcType=VARCHAR},
+      </if>
+      <if test="h2 != null">
+        #{h2,jdbcType=VARCHAR},
+      </if>
+      <if test="h3 != null">
+        #{h3,jdbcType=VARCHAR},
+      </if>
+      <if test="isDel != null">
+        #{isDel,jdbcType=INTEGER},
+      </if>
+      <if test="imageinfo != null">
+        #{imageinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="downloadinfo1 != null">
+        #{downloadinfo1,jdbcType=VARCHAR},
+      </if>
+      <if test="downloadinfo2 != null">
+        #{downloadinfo2,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="kindInfo != null">
+        #{kindInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="hot != null">
+        #{hot,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        #{state,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.testapis.entity.Media">
+    <!--@mbg.generated-->
+    update media
+    <set>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        userId = #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="h1 != null">
+        h1 = #{h1,jdbcType=VARCHAR},
+      </if>
+      <if test="h2 != null">
+        h2 = #{h2,jdbcType=VARCHAR},
+      </if>
+      <if test="h3 != null">
+        h3 = #{h3,jdbcType=VARCHAR},
+      </if>
+      <if test="isDel != null">
+        is_del = #{isDel,jdbcType=INTEGER},
+      </if>
+      <if test="imageinfo != null">
+        imageInfo = #{imageinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="downloadinfo1 != null">
+        downloadInfo1 = #{downloadinfo1,jdbcType=VARCHAR},
+      </if>
+      <if test="downloadinfo2 != null">
+        downloadinfo2 = #{downloadinfo2,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="kindInfo != null">
+        kind_info = #{kindInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="hot != null">
+        hot = #{hot,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null">
+        `state` = #{state,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.testapis.entity.Media">
+    <!--@mbg.generated-->
+    update media
+    set title = #{title,jdbcType=VARCHAR},
+      userId = #{userid,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      h1 = #{h1,jdbcType=VARCHAR},
+      h2 = #{h2,jdbcType=VARCHAR},
+      h3 = #{h3,jdbcType=VARCHAR},
+      is_del = #{isDel,jdbcType=INTEGER},
+      imageInfo = #{imageinfo,jdbcType=VARCHAR},
+      downloadInfo1 = #{downloadinfo1,jdbcType=VARCHAR},
+      downloadinfo2 = #{downloadinfo2,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      kind_info = #{kindInfo,jdbcType=VARCHAR},
+      hot = #{hot,jdbcType=INTEGER},
+      user_name = #{userName,jdbcType=VARCHAR},
+      `state` = #{state,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+
+
+<!--auto generated by MybatisCodeHelper on 2019-11-07-->
+  <select id="findAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from media
+  </select>
+
+  <select id="findAllByPage" parameterType="com.example.testapis.info.PageInfo" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from media
+    LIMIT ${(pageNum-1)*pageSize},#{pageSize,jdbcType=INTEGER}
+  </select>
+
+<!--auto generated by MybatisCodeHelper on 2019-11-07-->
+  <select id="countById" resultType="java.lang.Integer">
+    select count(1)
+    from media
+    where id=#{id,jdbcType=VARCHAR}
+  </select>
+
+<!--auto generated by MybatisCodeHelper on 2019-11-07-->
+  <select id="count" resultType="java.lang.Integer">
+    select count(1)
+    from media
+  </select>
+
+<!--auto generated by MybatisCodeHelper on 2019-11-07-->
+  <select id="findAllByKindInfoAndHot" parameterType="com.example.testapis.info.KindAndHotLimit" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from media
+    where kind_info=#{kind,jdbcType=VARCHAR} and state='state_complete' order by hot desc limit  #{limit,jdbcType=INTEGER}
+  </select>
+
+
+<!--auto generated by MybatisCodeHelper on 2019-11-16-->
+  <select id="findAllByStateAndUserid" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List"/>
+    from media
+    where `state`=#{state,jdbcType=VARCHAR} and userId=#{userid,jdbcType=VARCHAR}
+  </select>
+
+<!--auto generated by MybatisCodeHelper on 2019-11-17-->
+  <update id="updateImageinfoById">
+        update media
+        set imageInfo=#{updatedImageinfo,jdbcType=VARCHAR}
+        where id=#{id,jdbcType=VARCHAR}
+    </update>
+</mapper>
